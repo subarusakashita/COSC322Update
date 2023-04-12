@@ -67,7 +67,7 @@ public class Tree {
 				best = curr.getChildren().get(i);
 				break;
 			}					
-			else if(best.getBoard().evaluateBoard()+c <curr.getChildren().get(i).getBoard().evaluateBoard()+k) {
+			else if(best.getBoard().evaluateBoard()+c < curr.getChildren().get(i).getBoard().evaluateBoard()+k) {
 				best = curr.getChildren().get(i);
 				c = k;
 			}

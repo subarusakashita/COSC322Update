@@ -109,7 +109,7 @@ public class COSC322Test extends GamePlayer{
     			System.out.println("Black: " + this.userName);
     			node = new Node(new Board(true),false);
     			tree = new Tree(node);
-    			handleGamemovestart();
+    			handleGameStart();
     		}
     		else {
     			System.out.println("White: " + this.userName);
@@ -121,7 +121,7 @@ public class COSC322Test extends GamePlayer{
     	case GameMessage.GAME_ACTION_MOVE:
     		try {
     			gamegui.updateGameState(msgDetails);
-				handleGameActionMove(msgDetails);
+				handleGameMove(msgDetails);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -131,7 +131,7 @@ public class COSC322Test extends GamePlayer{
     	return true;
     }
     
-    public void handleGamemovestart() {
+    public void handleGameStart() {
     	Node child = new Node(new Board(node.getBoard(),false),false);
     	ArrayList<ArrayList<Integer>> makeMove = child.getBoard().randomMove(false);
         tree.addChild(node, child);
@@ -145,7 +145,7 @@ public class COSC322Test extends GamePlayer{
         		+ " to ["+ queenNewPos.get(0) + ", " + queenNewPos.get(1) +"]");
     }
     
-    public void handleGameActionMove(Map<String, Object> msgDetails) {
+    public void handleGameMove(Map<String, Object> msgDetails) {
     	// opponent's Move
     	long init_time = System.currentTimeMillis();
     	
@@ -203,6 +203,7 @@ public class COSC322Test extends GamePlayer{
     		return;
     	}
     }
+	
     @Override
     public String userName() {
     	return userName;
@@ -210,19 +211,16 @@ public class COSC322Test extends GamePlayer{
 
 	@Override
 	public GameClient getGameClient() {
-		// TODO Auto-generated method stub
 		return this.gameClient;
 	}
 
 	@Override
 	public BaseGameGUI getGameGUI() {
-		// TODO Auto-generated method stub
 		return  this.gamegui;
 	}
 
 	@Override
 	public void connect() {
-		// TODO Auto-generated method stub
     	gameClient = new GameClient(userName, passwd, this);			
 	}
 
