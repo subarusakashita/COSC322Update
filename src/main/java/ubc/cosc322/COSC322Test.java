@@ -160,11 +160,11 @@ public class COSC322Test extends GamePlayer{
         tree.addChild(node, child);
     	node=child;
     	if(node.getBoard().gameOverCheck(false) == 0) {
-    		System.out.println("Your opponent is out of moves. You win1!");
+    		System.out.println("Your opponent is out of moves. You win!");
     		return;
     	}
         if(node.getBoard().gameOverCheck(true) == 1) {
-    		System.out.println("You are out of moves. You lose1!");
+    		System.out.println("You are out of moves. You lose!");
     		return;
     	}
     	
@@ -195,11 +195,11 @@ public class COSC322Test extends GamePlayer{
         gamegui.updateGameState(queenPrevPos, queenNewPos, arrPos);
         //node.getBoard().printBoard();
         if(node.getBoard().gameOverCheck(false) == 0) {
-    		System.out.println("You are out of moves. You lose2!");
+    		System.out.println("You are out of moves. You lose!");
     		return;
     	}
         if(node.getBoard().gameOverCheck(true) == 1) {
-    		System.out.println("Your opponent is out of moves. You win2!");
+    		System.out.println("Your opponent is out of moves. You win!");
     		return;
     	}
     }
